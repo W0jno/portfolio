@@ -49,9 +49,6 @@ package-lock.json
 pnpm-lock.yaml
 yarn.lock
 
-# accidental install at repo root (app lives in my-bun-app/)
-/package.json
-
 # agent scaffolding
 AGENTS.md
 CLAUDE.md
