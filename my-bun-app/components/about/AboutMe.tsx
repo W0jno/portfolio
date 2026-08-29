@@ -36,6 +36,7 @@ export function AboutMe() {
               key={job.id}
               job={job}
               roleLabel={about.workRoleLabel}
+              companyLabel={about.workCompanyLabel}
               periodLabel={about.workPeriodLabel}
               descriptionLabel={about.workDescriptionLabel}
               skillsLabel={about.workSkillsLabel}
@@ -54,6 +55,16 @@ export function AboutMe() {
               <p className="mt-1 normal-case leading-relaxed tracking-normal text-muted">
                 {entry.description}
               </p>
+              {entry.bullets?.length ? (
+                <ul className="mt-2 space-y-1 normal-case tracking-normal text-muted">
+                  {entry.bullets.map((bullet) => (
+                    <li key={bullet}>
+                      <span className="text-neon">&gt; </span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </li>
           ))}
         </ul>

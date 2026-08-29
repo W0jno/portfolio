@@ -3,14 +3,16 @@ export interface EducationEntry {
   school: string;
   period: string;
   description: string;
+  bullets?: string[];
 }
 
 export interface WorkExperience {
   id: string;
   role: string;
+  company: string;
   period: string;
-  description: string;
-  skills: string[];
+  bullets: string[];
+  skills?: string[];
 }
 
 export interface AboutCopy {
@@ -26,6 +28,7 @@ export interface AboutCopy {
   education: EducationEntry[];
   workLabel: string;
   workRoleLabel: string;
+  workCompanyLabel: string;
   workPeriodLabel: string;
   workDescriptionLabel: string;
   workSkillsLabel: string;
