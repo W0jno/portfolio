@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #05080f;
+  --bg-panel: #0a101c;
+  --bg-raised: #121a28;
+  --neon: #a3ff00;
+  --gold: #e8c547;
+  --muted: #8a93a3;
+  --border: #3a4558;
+  --status: #7eb8d4;
+  --status-bar: #1a3a52;
+  --text: #d8dde6;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-panel: var(--bg-panel);
+  --color-bg-raised: var(--bg-raised);
+  --color-neon: var(--neon);
+  --color-gold: var(--gold);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-status: var(--status);
+  --color-status-bar: var(--status-bar);
+  --color-text: var(--text);
+  --font-sans: var(--font-geist-mono);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  height: 100%;
+}
+
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scanlines::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 0.125rem,
+    rgb(0 0 0 / 0.12) 0.125rem,
+    rgb(0 0 0 / 0.12) 0.1875rem
+  );
+}
+
+.neon-glow {
+  text-shadow: 0 0 0.5rem rgb(163 255 0 / 0.55);
+}
+
+.window-glow {
+  box-shadow: 0 0 2.5rem rgb(163 255 0 / 0.08);
+}
+
+.cursor-blink {
+  animation: cursor-blink 1.1s step-end infinite;
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
