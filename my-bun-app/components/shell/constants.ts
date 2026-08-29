@@ -8,12 +8,12 @@ export const shellCopy: Record<Locale, ShellCopy> = {
     filePath: {
       about: "C:\\USERS\\OPERATOR\\ABOUT_ME.TXT",
       projects: "C:\\USERS\\OPERATOR\\PROJECTS\\",
-      tech: "C:\\USERS\\OPERATOR\\SKILLS.DAT",
+      skills: "C:\\USERS\\OPERATOR\\SKILLS.DAT",
     },
     nav: {
       about: "ABOUT_ME.TXT",
       projects: "PROJECTS/",
-      tech: "SKILLS.DAT",
+      skills: "SKILLS.DAT",
     },
     navLabel: "NAVIGATION",
     systemLabel: "SYSTEM INFO",
@@ -50,12 +50,12 @@ export const shellCopy: Record<Locale, ShellCopy> = {
     filePath: {
       about: "C:\\USERS\\OPERATOR\\ABOUT_ME.TXT",
       projects: "C:\\USERS\\OPERATOR\\PROJECTS\\",
-      tech: "C:\\USERS\\OPERATOR\\SKILLS.DAT",
+      skills: "C:\\USERS\\OPERATOR\\SKILLS.DAT",
     },
     nav: {
       about: "ABOUT_ME.TXT",
       projects: "PROJECTS/",
-      tech: "SKILLS.DAT",
+      skills: "SKILLS.DAT",
     },
     navLabel: "NAVIGATION",
     systemLabel: "SYSTEM INFO",

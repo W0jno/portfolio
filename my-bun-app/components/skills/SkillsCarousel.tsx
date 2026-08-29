@@ -1,7 +1,7 @@
-import { techItems } from "@/components/tech/constants";
+import { skillItems } from "@/components/skills/constants";
 
-export function TechCarousel() {
-  const loop = [...techItems, ...techItems];
+export function SkillsCarousel() {
+  const loop = [...skillItems, ...skillItems];
 
   return (
     <div className="min-w-0 w-full overflow-hidden [contain:paint] border border-border bg-bg-raised py-3">

@@ -3,16 +3,16 @@ import type { Dictionary } from "@/app/content";
 import { aboutCopy } from "@/components/about/constants";
 import { projectsCopy } from "@/components/projects/constants";
 import { shellCopy } from "@/components/shell/constants";
-import { techCopy } from "@/components/tech/constants";
+import { skillsCopy } from "@/components/skills/constants";
 
 export const STORAGE_KEY = "portfolio-locale";
 
-export const sections: Section[] = ["about", "projects", "tech"];
+export const sections: Section[] = ["about", "projects", "skills"];
 
 export const sectionPaths: Record<Section, string> = {
   about: "/about",
   projects: "/projects",
-  tech: "/tech",
+  skills: "/skills",
 };
 
 export const content: Record<Locale, Dictionary> = {
@@ -20,12 +20,12 @@ export const content: Record<Locale, Dictionary> = {
     shell: shellCopy.pl,
     about: aboutCopy.pl,
     projects: projectsCopy.pl,
-    tech: techCopy.pl,
+    skills: skillsCopy.pl,
   },
   en: {
     shell: shellCopy.en,
     about: aboutCopy.en,
     projects: projectsCopy.en,
-    tech: techCopy.en,
+    skills: skillsCopy.en,
   },
 };

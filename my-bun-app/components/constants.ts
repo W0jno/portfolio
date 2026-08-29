@@ -4,12 +4,12 @@ import type { Section } from "@/app/locale";
 import { AboutMe } from "@/components/about/AboutMe";
 import { ProjectDetail } from "@/components/projects/ProjectDetail";
 import { Projects } from "@/components/projects/Projects";
-import { TechStack } from "@/components/tech/TechStack";
+import { Skills } from "@/components/skills/Skills";
 
 export const views: Record<Section, ComponentType> = {
   about: AboutMe,
   projects: Projects,
-  tech: TechStack,
+  skills: Skills,
 };
 
 export const viewRoutes = [
