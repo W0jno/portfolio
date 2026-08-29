@@ -1,13 +1,17 @@
 "use client";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { LanguageSwitch } from "@/components/shell/LanguageSwitch";
+import { ProjectTree } from "@/components/projects/ProjectTree";
 import { useLocale } from "@/components/LocaleProvider";
 import { sectionPaths, sections } from "@/app/constants";
+import { sectionFromPath } from "@/app/locale";
 
 export function Sidebar() {
   const { t } = useLocale();
   const shell = t.shell;
+  const { pathname } = useLocation();
+  const section = sectionFromPath(pathname);
 
   return (
     <aside className="flex w-full shrink-0 flex-col gap-5 border-border md:w-56 md:border-r">
@@ -16,25 +20,31 @@ export function Sidebar() {
           [ {shell.navLabel} ]
         </h2>
         <nav className="flex flex-col gap-1">
-          {sections.map((section) => (
-            <NavLink
-              key={section}
-              to={sectionPaths[section]}
-              className={({ isActive }) =>
-                `border px-2 py-1.5 text-left text-xs uppercase tracking-wide ${
-                  isActive
-                    ? "border-neon bg-neon text-bg"
-                    : "border-border text-text hover:border-neon hover:text-neon"
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <span className={isActive ? "text-bg" : "text-neon"}>&gt; </span>
-                  {shell.nav[section]}
-                </>
-              )}
-            </NavLink>
+          {sections.map((item) => (
+            <div key={item}>
+              <NavLink
+                to={sectionPaths[item]}
+                className={({ isActive }) =>
+                  `block border px-2 py-1.5 text-left text-xs uppercase tracking-wide ${
+                    isActive
+                      ? "border-neon bg-neon text-bg"
+                      : "border-border text-text hover:border-neon hover:text-neon"
+                  }`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    <span className={isActive ? "text-bg" : "text-neon"}>
+                      &gt;{" "}
+                    </span>
+                    {shell.nav[item]}
+                  </>
+                )}
+              </NavLink>
+              {item === "projects" && section === "projects" ? (
+                <ProjectTree />
+              ) : null}
+            </div>
           ))}
         </nav>
       </section>

@@ -3,7 +3,7 @@ export type Section = "about" | "projects" | "tech";
 
 export function sectionFromPath(pathname: string): Section {
   const value = pathname.replace(/\/$/, "") || "/";
-  if (value === "/projects") {
+  if (value === "/projects" || value.startsWith("/projects/")) {
     return "projects";
   }
   if (value === "/tech") {

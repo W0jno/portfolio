@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import type { Project } from "@/components/projects/copy";
+import { projectPath } from "@/components/projects/constants";
 
 interface ProjectCardProps {
   project: Project;
@@ -8,7 +10,11 @@ interface ProjectCardProps {
 export function ProjectCard({ project, openLabel }: ProjectCardProps) {
   return (
     <article className="flex flex-col gap-2 border border-border bg-bg-raised p-3">
-      <h3 className="text-sm tracking-wide text-gold">{project.title}</h3>
+      <h3 className="text-sm tracking-wide text-gold">
+        <Link to={projectPath(project.id)} className="hover:text-neon">
+          {project.title}/
+        </Link>
+      </h3>
       <p className="text-xs leading-relaxed tracking-normal text-muted normal-case">
         {project.description}
       </p>
@@ -22,14 +28,16 @@ export function ProjectCard({ project, openLabel }: ProjectCardProps) {
           </li>
         ))}
       </ul>
-      <a
-        href={project.href}
-        target="_blank"
-        rel="noreferrer"
-        className="mt-auto text-xs uppercase text-text hover:text-neon sm:text-sm"
-      >
-        &gt; {openLabel}
-      </a>
+      {project.href ? (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-auto text-xs uppercase text-text hover:text-neon sm:text-sm"
+        >
+          &gt; {openLabel}
+        </a>
+      ) : null}
     </article>
   );
 }

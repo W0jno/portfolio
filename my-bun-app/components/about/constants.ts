@@ -39,7 +39,7 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
     workCompanyLabel: "FIRMA",
     workPeriodLabel: "OKRES",
     workDescriptionLabel: "ZAKRES OBOWIĄZKÓW",
-    workSkillsLabel: "SKILLE",
+    workSkillsLabel: "STACK",
     work: [
       {
         id: "job-1",
