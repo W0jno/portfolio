@@ -57,15 +57,28 @@ export function ProjectDetail() {
         </ul>
       </div>
 
-      {project.href ? (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-auto text-xs uppercase text-text hover:text-neon sm:text-sm"
-        >
-          &gt; {t.projects.openRepo}
-        </a>
+      {project.githubUrl ? (
+        <div className="mt-auto flex flex-col gap-1">
+          <h3 className="text-xs uppercase tracking-wide text-gold sm:text-sm">
+            {t.projects.githubLabel}:
+          </h3>
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="break-all text-xs text-muted hover:text-neon sm:text-sm"
+          >
+            {project.githubUrl}
+          </a>
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs uppercase text-text hover:text-neon sm:text-sm"
+          >
+            &gt; {t.projects.openRepo}
+          </a>
+        </div>
       ) : null}
     </article>
   );

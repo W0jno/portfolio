@@ -28,9 +28,9 @@ export function ProjectCard({ project, openLabel }: ProjectCardProps) {
           </li>
         ))}
       </ul>
-      {project.href ? (
+      {project.githubUrl ? (
         <a
-          href={project.href}
+          href={project.githubUrl}
           target="_blank"
           rel="noreferrer"
           className="mt-auto text-xs uppercase text-text hover:text-neon sm:text-sm"

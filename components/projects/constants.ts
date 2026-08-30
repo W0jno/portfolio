@@ -12,6 +12,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
     treeLabel: "PROJECTS/",
     backLabel: "../ WROC DO LISTY",
     tagsLabel: "STACK",
+    githubLabel: "GITHUB",
     items: [
       {
         id: "arcade-console",
@@ -37,7 +38,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "Raport zawiera rekomendacje naprawcze dla każdego wykrytego zagrożenia.",
         ],
         tags: ["Python", "FastAPI", "PostgreSQL", "TypeScript", "React", "Docker"],
-        href: "https://github.com/w0jno/OWASP_SCANNER",
+        githubUrl: "https://github.com/w0jno/OWASP_SCANNER",
       },
       {
         id: "desktop-capybaras",
@@ -50,7 +51,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "Kapibarę można złapać kursorem i przenieść w dowolne miejsce ekranu.",
         ],
         tags: ["C#", "Unity", "Blender"],
-        href: "https://github.com/w0jno/Desktop-Capybaras",
+        githubUrl: "https://github.com/w0jno/Desktop-Capybaras",
       },
       {
         id: "cheese-scraper",
@@ -63,7 +64,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "Zebrane dane (nazwa, pochodzenie, rodzaj mleka, tekstura, opis) lądują w bazie SQLite.",
         ],
         tags: ["JavaScript", "Playwright", "SQLite"],
-        href: "https://github.com/w0jno/cheese-scraper",
+        githubUrl: "https://github.com/w0jno/cheese-scraper",
       },
     ],
   },
@@ -73,6 +74,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
     treeLabel: "PROJECTS/",
     backLabel: "../ BACK TO LIST",
     tagsLabel: "STACK",
+    githubLabel: "GITHUB",
     items: [
       {
         id: "arcade-console",
@@ -98,7 +100,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "Each finding comes with a remediation recommendation.",
         ],
         tags: ["Python", "FastAPI", "PostgreSQL", "TypeScript", "React", "Docker"],
-        href: "https://github.com/w0jno/OWASP_SCANNER",
+        githubUrl: "https://github.com/w0jno/OWASP_SCANNER",
       },
       {
         id: "desktop-capybaras",
@@ -111,7 +113,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "You can pick a capybara up with the cursor and move it anywhere on screen.",
         ],
         tags: ["C#", "Unity", "Blender"],
-        href: "https://github.com/w0jno/Desktop-Capybaras",
+        githubUrl: "https://github.com/w0jno/Desktop-Capybaras",
       },
       {
         id: "cheese-scraper",
@@ -124,7 +126,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "Collected data (name, origin, milk type, texture, description) is stored in SQLite.",
         ],
         tags: ["JavaScript", "Playwright", "SQLite"],
-        href: "https://github.com/w0jno/cheese-scraper",
+        githubUrl: "https://github.com/w0jno/cheese-scraper",
       },
     ],
   },

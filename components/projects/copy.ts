@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
-  href?: string;
+  githubUrl?: string;
   details?: string[];
 }
 
@@ -13,5 +13,6 @@ export interface ProjectsCopy {
   treeLabel: string;
   backLabel: string;
   tagsLabel: string;
+  githubLabel: string;
   items: Project[];
 }
