@@ -1,0 +1,45 @@
+# dependencies & build output (rebuilt inside the image)
+node_modules
+.next
+out
+build
+dist
+coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# version control
+.git
+.gitignore
+
+# docker
+Dockerfile
+.dockerignore
+compose.yaml
+docker-compose.yml
+
+# editor & agent tooling
+.agents
+.cursor
+.claude
+.idea
+.vscode
+AGENTS.md
+CLAUDE.md
+skills-lock.json
+*.swp
+*.swo
+
+# docs
+README.md
+*.md
+
+# secrets & local env
+.env*
+!.env.example
+*.pem
+
+# logs & OS junk
+*.log
+npm-debug.log*
+.DS_Store
