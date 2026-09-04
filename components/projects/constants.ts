@@ -23,7 +23,7 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "Współprojektowanie i budowa konsoli arcade w ramach projektu koła naukowego.",
           "Urządzenie oparte o Raspberry Pi z systemem RetroPie.",
           "Obsługa dwóch bezprzewodowych kontrolerów łączonych przez Bluetooth.",
-          "Kontrolery na mikrokontrolerach ESP32, w pełni zintegrowane z systemem gry.",
+          "Kontrolery na mikrokontrolerach ESP32, zaprojektowane od zera, w pełni zintegrowane z systemem gry.",
         ],
         tags: ["ESP32", "C", "Druk 3D", "autoCAD"],
       },
@@ -64,6 +64,17 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
           "Zebrane dane (nazwa, pochodzenie, rodzaj mleka, tekstura, opis) lądują w bazie SQLite.",
         ],
         tags: ["JavaScript", "Playwright", "SQLite"],
+        githubUrl: "https://github.com/w0jno/cheese-scraper",
+      },
+      {
+        id: "homelab",
+        title: "HOMELAB",
+        description:
+          "TODO",
+        details: [
+          "TODO"
+        ],
+        tags: ["Terraform", "Docker", "K8S", "Ansible"],
         githubUrl: "https://github.com/w0jno/cheese-scraper",
       },
     ],
