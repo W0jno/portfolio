@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PORTFOLIO.SYS
 
-## Getting Started
+Osobiste portfolio (DevOps / software) jako SPA: Next.js 16, React 19, Tailwind CSS 4, Bun. UI w stylu terminala, treści PL/EN.
 
-First, run the development server:
+Obraz produkcyjny: [`squnior420/w0jno-portfolio`](https://hub.docker.com/r/squnior420/w0jno-portfolio) (`linux/amd64`). Klaster i manifesty Kubernetes są w osobnym repozytorium `homelab-infrastructure`.
+
+## Wymagania
+
+- [Bun](https://bun.sh) **1.4.x** (to samo co `packageManager` w `package.json`)
+- Node nie jest potrzebny do `dev` / `build` skryptów — idą przez `bun --bun`
+- Do obrazu: Docker (albo Podman)
+
+## Uruchomienie lokalne
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:W0jno/portfolio.git
+cd portfolio
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Otwórz [http://localhost:3000](http://localhost:3000). Domyślnie przekierowanie na `/about`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Ścieżka | Widok |
+|---------|--------|
+| `/about` | O mnie, praca, edukacja |
+| `/projects` | Lista projektów |
+| `/projects/:id` | Szczegóły projektu |
+| `/skills` | Stack w sekcjach |
+| `/api/health` | JSON `{ "status": "ok" }` (sondy k8s) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Język: przełącznik **PL / EN** w sidebarze (zapis w `localStorage`).
 
-## Learn More
+```bash
+bun run build    # produkcyjny build Next (standalone)
+bun run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+Po `build` lokalny start: `bun run start` (port 3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Treści
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Nie edytuj copy w komponentach. Zmieniaj:
 
-## Deploy on Vercel
+- `components/about/constants.ts` — bio, praca, szkoła
+- `components/projects/constants.ts` — projekty, `githubUrl`
+- `components/skills/constants.ts` — grupy technologii
+- `components/shell/constants.ts` — nav, linki GitHub/LinkedIn/CV
+- `public/resume.pdf` — plik pod `[R] DOWNLOAD RESUME`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Docker
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Wieloetapowy build: Bun instaluje i kompiluje, runtime to **Node 22** + `output: "standalone"` (`node server.js`). W obrazie nie ma nginx.
+
+```bash
+docker build -t portfolio:local .
+docker run --rm -p 3000:3000 portfolio:local
+```
+
+Health:
+
+```bash
+curl -i http://127.0.0.1:3000/api/health
+```
+
+Gotowy obraz z CI:
+
+```bash
+docker pull squnior420/w0jno-portfolio:main
+docker run --rm -p 3000:3000 squnior420/w0jno-portfolio:main
+```
+
+`.dockerignore` wycina `node_modules`, `.next`, git i sekrety. `bun.lock` **musi** być w repozytorium (`bun install --frozen-lockfile` w Dockerfile).
+
+## CI (GitHub Actions)
+
+Workflow `.github/workflows/docker-ci.yml` na push do `main`:
+
+1. checkout + Buildx  
+2. tagi z `docker/metadata-action`  
+3. login Docker Hub (`vars.DOCKER_USERNAME`, `secrets.DOCKER_ACCESS_TOKEN`)  
+4. build + push, cache GHA (`mode=max`)
+
+Obraz: `docker.io/<DOCKER_USERNAME>/<github.repository_owner>-portfolio` (np. `squnior420/w0jno-portfolio`).
+
+## Kubernetes
+
+Aplikacja nasłuchuje na **3000** (`HOSTNAME=0.0.0.0`). Sondy: `httpGet` `/api/health` port 3000. Service: np. `port: 80` → `targetPort: 3000`.
+
+Deploy (Deployment + Service) należy do `homelab-infrastructure` (`k8s/manifests/`). Apply z maszyny, która ma `kubectl` do k3s (u nas `k3s-master`). Wejście z internetu: Cloudflare Tunnel na Service, bez otwierania 80/443 na routerze.
+
+## Struktura
+
+```text
+app/                 # layout, page, /api/health, rewrite SPA
+components/          # widoki + shell + LocaleProvider
+public/              # statyki (resume.pdf)
+Dockerfile
+.github/workflows/docker-ci.yml
+```
+
+`next.config.ts`: `output: "standalone"` oraz rewrite `/about`, `/projects`, `/skills` → `/` (React Router na kliencie). `/api/*` nie jest przepisywane.
