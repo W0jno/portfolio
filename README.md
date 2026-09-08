@@ -21,14 +21,6 @@ bun run dev
 
 Otwórz [http://localhost:3000](http://localhost:3000). Domyślnie przekierowanie na `/about`.
 
-| Ścieżka | Widok |
-|---------|--------|
-| `/about` | O mnie, praca, edukacja |
-| `/projects` | Lista projektów |
-| `/projects/:id` | Szczegóły projektu |
-| `/skills` | Stack w sekcjach |
-| `/api/health` | JSON `{ "status": "ok" }` (sondy k8s) |
-
 Język: przełącznik **PL / EN** w sidebarze (zapis w `localStorage`).
 
 ```bash
