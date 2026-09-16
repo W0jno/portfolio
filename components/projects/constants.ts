@@ -15,6 +15,30 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
     githubLabel: "GITHUB",
     items: [
       {
+        id: "homelab",
+        title: "HOMELAB",
+        description:
+          "Homelab na Proxmoxie: klaster k3s, IaC w Terraformie i Ansible, to portfolio za Cloudflare Tunnel — bez otwartych portów na routerze.",
+        details: [
+          "Repozytorium homelab-infrastructure: Terraform (bpg/proxmox) stawia VM-y k3s i LXC mediów, Ansible instaluje k3s i stack Docker Compose (Jellyfin, *arr).",
+          "Klaster: jeden master i dwa workery; kubeconfig z Ansible, manifesty Deployment/Service w k8s/manifests.",
+          "To portfolio (Next.js, obraz Docker Hub, GitHub Actions) działa na k3s; sondy HTTP na /api/health.",
+          "Wejście z internetu: Cloudflare Tunnel do Service ClusterIP, domena fwojno.com — bez Ingressa na świat i bez DNAT 80/443.",
+          "Media (Jellyfin, qBittorrent) na osobnym LXC, poza klastrem. Monitoring: kube-prometheus-stack / Grafana w planie IaC, nie w tym SPA.",
+        ],
+        tags: [
+          "Proxmox",
+          "Terraform",
+          "Ansible",
+          "k3s",
+          "Kubernetes",
+          "Docker",
+          "Cloudflare Tunnel",
+          "GitHub Actions",
+        ],
+        githubUrl: "https://github.com/w0jno/homelab-infrastructure",
+      },
+      {
         id: "arcade-console",
         title: "ARCADE_CONSOLE",
         description:
@@ -66,17 +90,6 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
         tags: ["JavaScript", "Playwright", "SQLite"],
         githubUrl: "https://github.com/w0jno/cheese-scraper",
       },
-      {
-        id: "homelab",
-        title: "HOMELAB",
-        description:
-          "TODO",
-        details: [
-          "TODO"
-        ],
-        tags: ["Terraform", "Docker", "K8S", "Ansible"],
-        githubUrl: "https://github.com/w0jno/cheese-scraper",
-      },
     ],
   },
   en: {
@@ -87,6 +100,30 @@ export const projectsCopy: Record<Locale, ProjectsCopy> = {
     tagsLabel: "STACK",
     githubLabel: "GITHUB",
     items: [
+      {
+        id: "homelab",
+        title: "HOMELAB",
+        description:
+          "Proxmox homelab: k3s cluster, Terraform and Ansible IaC, this portfolio behind a Cloudflare Tunnel — no router port forwards.",
+        details: [
+          "homelab-infrastructure repo: Terraform (bpg/proxmox) provisions k3s VMs and a media LXC; Ansible installs k3s and the Docker Compose stack (Jellyfin, *arr).",
+          "Cluster: one master and two workers; kubeconfig from Ansible; Deployment/Service manifests under k8s/manifests.",
+          "This portfolio (Next.js, Docker Hub image, GitHub Actions) runs on k3s with HTTP probes on /api/health.",
+          "Public access: Cloudflare Tunnel to the ClusterIP Service, domain fwojno.com — no public Ingress and no DNAT on 80/443.",
+          "Media (Jellyfin, qBittorrent) stays on a separate LXC, outside the cluster. Monitoring (kube-prometheus-stack / Grafana) lives in IaC, not in this SPA.",
+        ],
+        tags: [
+          "Proxmox",
+          "Terraform",
+          "Ansible",
+          "k3s",
+          "Kubernetes",
+          "Docker",
+          "Cloudflare Tunnel",
+          "GitHub Actions",
+        ],
+        githubUrl: "https://github.com/w0jno/homelab-infrastructure",
+      },
       {
         id: "arcade-console",
         title: "ARCADE_CONSOLE",
