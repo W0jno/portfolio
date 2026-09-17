@@ -10,7 +10,7 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
     roleKey: "ROLE",
     role: "DEVOPS / SOFTWARE ENGINEER",
     bioLabel: "ABOUT ME",
-    bio: "Pasjonat automatyzacji, homelabowania, programowania oraz wspinaczki. Zwolennik open-source, self-hostingu i dobrych gier.",
+    bio: "Inżynier DevOps z praktycznym doświadczeniem w budowie i wdrażaniu skalowalnej infrastruktury IT. Pasjonat homelabu, automatyzacji i ciągłej integracji. Łączę development z operacjami, korzystając m.in. z Kubernetes, Terraform i Jenkins. Entuzjasta technologii open-source, wspinaczki i gier retro.",
     educationLabel: "EDUCATION",
     education: [
       {
@@ -124,7 +124,7 @@ export const aboutCopy: Record<Locale, AboutCopy> = {
     roleKey: "ROLE",
     role: "DEVOPS / SOFTWARE ENGINEER",
     bioLabel: "ABOUT ME",
-    bio: "Passionate about automation, homelabbing, programming and climbing. Fan of open-source, self-hosting and good games.",
+    bio: "DevOps engineer with hands-on experience in building and deploying scalable IT infrastructure. Passionate about homelabbing, automation, and continuous integration. Proven track record of bridging the gap between software development and IT operations using tools like Kubernetes, Terraform, and Jenkins. Enthusiast of open-source technologies, climbing, and retro gaming.",
     educationLabel: "EDUCATION",
     education: [
       {
