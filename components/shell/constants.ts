@@ -35,7 +35,7 @@ export const shellCopy: Record<Locale, ShellCopy> = {
       resume: "DOWNLOAD RESUME",
       githubHref: "https://github.com/w0jno",
       linkedinHref: "https://linkedin.com/in/filipwojno",
-      resumeHref: "/resume.pdf",
+      resumeHref: "/Filip_Wojno_CV_ENG.pdf",
     },
     statusBar: {
       uptime: "UPTIME: 99.9%",
@@ -77,7 +77,7 @@ export const shellCopy: Record<Locale, ShellCopy> = {
       resume: "DOWNLOAD RESUME",
       githubHref: "https://github.com/w0jno",
       linkedinHref: "https://linkedin.com/in/filipwojno",
-      resumeHref: "/resume.pdf",
+      resumeHref: "/Filip_Wojno_CV_ENG.pdf",
     },
     statusBar: {
       uptime: "UPTIME: 99.9%",

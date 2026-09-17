@@ -38,7 +38,7 @@ Nie edytuj copy w komponentach. Zmieniaj:
 - `components/projects/constants.ts` — projekty, `githubUrl`
 - `components/skills/constants.ts` — grupy technologii
 - `components/shell/constants.ts` — nav, linki GitHub/LinkedIn/CV
-- `public/resume.pdf` — plik pod `[R] DOWNLOAD RESUME`
+- `public/Filip_Wojno_CV_ENG.pdf` — plik pod `[R] DOWNLOAD RESUME`
 
 ## Docker
 
@@ -86,7 +86,7 @@ Deploy (Deployment + Service) należy do `homelab-infrastructure` (`k8s/manifest
 ```text
 app/                 # layout, page, /api/health, rewrite SPA
 components/          # widoki + shell + LocaleProvider
-public/              # statyki (resume.pdf)
+public/              # statyki (CV PDF)
 Dockerfile
 .github/workflows/docker-ci.yml
 ```
